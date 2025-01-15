@@ -25,7 +25,7 @@ export class BookCopyService {
   }
 
   async findByCopyId(copyId: string): Promise<BookCopy> {
-    const copy = await this.bookCopyModel.findOne({ copyId }).exec();
+    const copy = await this.bookCopyModel.findById(copyId).exec();
     if (!copy) {
       throw new NotFoundException(`Book copy with ID ${copyId} not found`);
     }
